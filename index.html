@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | MSc Computer Science</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .hero-section {
+      padding: 100px 0;
+      background-color: #f8f9fa;
+    }
+
+    .project-card {
+      margin-bottom: 20px;
+      transition: transform 0.2s;
+    }
+
+    .project-card:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Portfolio</a>
+      <div class="navbar-nav">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero-section text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Hi, I'm Sunny</h1>
+      <p class="lead">MSc Computer Science Student | Java & Python Developer</p>
+      <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+    </div>
+  </section>
+
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">My Projects</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">Sudoku Solver</h5>
+              <p class="card-text">A logic-based solver built using Python and search algorithms.</p>
+              <span class="badge bg-secondary">Python</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card project-card">
+            <div class="card-body">
+              <h5 class="card-title">Adventures of Fabio</h5>
+              <p class="card-text">A 2D game developed in Java showcasing OOP principles.</p>
+              <span class="badge bg-secondary">Java</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
