@@ -4,71 +4,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio | MSc Computer Science</title>
+  <title>Yung Chia Lin | Software Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
   <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      color: #333;
+    }
+
     .hero-section {
+      padding: 140px 0;
+      background: radial-gradient(circle at top right, #f8f9fa, #e9ecef);
+    }
+
+    .section-padding {
       padding: 100px 0;
-      background-color: #f8f9fa;
+    }
+
+    .bg-soft-blue {
+      background-color: #f0f4f8;
     }
 
     .project-card {
-      margin-bottom: 20px;
-      transition: transform 0.2s;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+      background: #fff;
     }
 
     .project-card:hover {
-      transform: scale(1.05);
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline {
+      padding-left: 10px;
+      position: relative;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 30px; 
+      padding-bottom: 40px; 
+      border-left: 3px solid #0d6efd; 
+    }
+
+    .timeline-item:last-child {
+      border-left: 3px solid transparent; 
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -7.5px; 
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #0d6efd;
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+      z-index: 1;
+    }
+
+    .skill-badge {
+      background: #e9ecef;
+      color: #495057;
+      padding: 6px 15px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin: 5px;
+      display: inline-block;
+    }
+
+    .navbar-brand {
+      letter-spacing: 1px;
     }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="#">Portfolio</a>
-      <div class="navbar-nav">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#contact">Contact</a>
+      <a class="navbar-brand fw-bold" href="#">YUNG CHIA LIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav ms-auto text-uppercase" style="font-size: 0.85rem; font-weight: 600;">
+          <a class="nav-link px-3" href="#about">About</a>
+          <a class="nav-link px-3" href="#experience">Experience</a>
+          <a class="nav-link px-3" href="#education">Education</a>
+          <!-- <a class="nav-link px-3" href="#projects">Projects</a> -->
+        </div>
       </div>
     </div>
   </nav>
 
   <section class="hero-section text-center">
     <div class="container">
-      <h1 class="display-4 fw-bold">Hi, I'm Sunny</h1>
-      <p class="lead">MSc Computer Science Student | Java & Python Developer</p>
-      <a href="#projects" class="btn btn-primary btn-lg">View My Work</a>
+      <h1 class="display-3 fw-bold mb-3">Yung Chia Lin</h1>
+      <p class="lead mb-4 text-secondary">MSc Computer Science Student at University of Bath | Software Engineer</p>
+      <div class="mb-5">
+        <a href="https://github.com/Sunnylin0320" target="_blank" class="text-dark me-4 text-decoration-none">
+          <i class="bi bi-github" style="font-size: 2.2rem;"></i>
+        </a>
+        <a href="https://linkedin.com/in/sunny-lin-a39232176" target="_blank" class="text-dark me-4 text-decoration-none">
+          <i class="bi bi-linkedin" style="font-size: 2.2rem;"></i>
+        </a>
+        <a href="mailto:sunnylinyungchia@gmail.com" class="text-dark text-decoration-none">
+          <i class="bi bi-envelope-fill" style="font-size: 2.2rem;"></i>
+        </a>
+      </div>
+      <!-- <a href="#projects" class="btn btn-primary btn-lg px-5 py-3 shadow-sm fw-bold">View My Work</a> -->
     </div>
   </section>
 
-  <section id="projects" class="py-5">
+  <section id="about" class="section-padding">
     <div class="container">
-      <h2 class="text-center mb-5">My Projects</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">Sudoku Solver</h5>
-              <p class="card-text">A logic-based solver built using Python and search algorithms.</p>
-              <span class="badge bg-secondary">Python</span>
+      <div class="row justify-content-center">
+        <div class="col-md-9 text-center">
+          <h2 class="fw-bold mb-4">About Me</h2>
+          <p class="fs-5 text-muted mb-5">
+            I am a postgraduate student currently pursuing an MSc in Computer Science at the University of Bath.
+            Transitioning from a Bachelor of Business Administration (BBA) background, I possess a unique blend of
+            business acumen and technical problem-solving skills.
+          </p>
+          <!-- <div class="mt-4">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">Java</span>
+            <span class="skill-badge">Git & CI/CD</span>
+            <span class="skill-badge">AI / ML</span>
+            <span class="skill-badge">Object-Oriented Programming</span>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section-padding bg-soft-blue">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Work Experience</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="timeline">
+  
+            <div class="timeline-item">
+              <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <h4 class="fw-bold text-primary">Winmate – Software Engineer</h4>
+                <span class="badge bg-secondary mb-2">Dec 2023 - Mar 2025</span>
+              </div>
+              <p class="text-muted mb-3">
+                Full-stack development and system optimization for enterprise-level operations.
+              </p>
+              <ul>
+                <li>Designed and implemented a full-stack <strong>Repair Management System</strong> using
+                  Python/Django/MySQL; currently essential for daily operations, supporting <strong>300+ staff</strong>
+                  and processing <strong>500+ repairs per month</strong>.</li>
+                <li>Developed a custom <strong>Employee Attendance Tracking System</strong> (Python/Django), automating
+                  reporting and optimizing workforce tracking through extensive cross-departmental consultation.</li>
+                <li>Launched the <strong>GPMS (Green Product Management System)</strong>, automating mandated data
+                  reporting and compliance, resulting in an annual saving of over <strong>GBP £10,000</strong> in
+                  operational costs.</li>
+                <li>Managed and customized the <strong>Odoo ERP</strong> system, focusing on inventory and approval module
+                  enhancements to streamline internal workflows.</li>
+              </ul>
             </div>
+  
+            <div class="timeline-item">
+              <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <h4 class="fw-bold text-primary">FastBridge – Software Intern</h4>
+                <span class="badge bg-secondary mb-2">Apr 2023 - Sep 2023</span>
+              </div>
+              <ul>
+                <li>Conducted comprehensive <strong>manual and exploratory testing</strong> across Web/Mobile platforms to
+                  validate new features against user requirements.</li>
+                <li>Created low-fidelity wireframes and interactive prototypes using <strong>Axure</strong>, collaborating
+                  with designers to optimize user flow.</li>
+                <li>Authored accessible user manuals, translating complex application workflows into guides that
+                  significantly improved feature adoption.</li>
+              </ul>
+            </div>
+  
+            <div class="timeline-item">
+              <div class="d-flex justify-content-between align-items-start flex-wrap">
+                <h4 class="fw-bold text-primary">Union Chemical – Specialist</h4>
+                <span class="badge bg-secondary mb-2">Mar 2021 - Mar 2023</span>
+              </div>
+              <ul>
+                <li>Managed end-to-end inbound/outbound shipments, implementing verification standards to ensure high
+                  inventory accuracy.</li>
+                <li>Served as the central coordinator across internal departments to ensure compliant handling of
+                  sensitive inventory.</li>
+              </ul>
+            </div>
+  
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card project-card">
-            <div class="card-body">
-              <h5 class="card-title">Adventures of Fabio</h5>
-              <p class="card-text">A 2D game developed in Java showcasing OOP principles.</p>
-              <span class="badge bg-secondary">Java</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section-padding">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Education</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4 class="fw-bold text-primary">MSc Computer Science</h4>
+              <p class="mb-1 fw-bold">University of Bath | 2025 - Present</p>
+              <p class="text-muted mb-2">Student Number: 259112635</p>
+              <ul>
+                <li>Awarded a postgraduate scholarship for academic excellence.</li>
+                <li>Actively participated in the PGT Buddy Scheme.</li>
+                <li>Key modules: Artificial Intelligence, Machine Learning, and Software Systems.</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <h4 class="fw-bold text-primary">Bachelor of Business Administration (BBA)</h4>
+              <p class="mb-1 fw-bold">National United University</p>
+              <ul>
+                <li>Successfully pivoted to Computer Science by building a strong self-taught foundation in programming.
+                </li>
+                <li>Developed strong analytical and strategic thinking skills from a business perspective.</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- <section id="projects" class="section-padding bg-soft-blue">
+    <div class="container">
+      <h2 class="text-center fw-bold mb-5">Selected Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 project-card p-3">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-3">Sudoku Solver</h5>
+              <p class="card-text text-muted mb-4">A high-performance automated solver built with Python, using
+                backtracking and search algorithms to solve complex puzzles.</p>
+              <span class="badge bg-primary px-3 py-2">Python</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 project-card p-3">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-3">Adventures of Fabio</h5>
+              <p class="card-text text-muted mb-4">My first Java project; a 2D game developed using Object-Oriented
+                Programming (OOP) principles and basic graphics libraries.</p>
+              <span class="badge bg-danger px-3 py-2">Java</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 project-card p-3">
+            <div class="card-body">
+              <h5 class="card-title fw-bold mb-3">Student Grade Analyser</h5>
+              <p class="card-text text-muted mb-4">A Java-based utility designed to manage and analyze student
+                performance data, featuring custom data sorting logic.</p>
+              <span class="badge bg-info text-dark px-3 py-2">Java</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <footer class="bg-dark text-white text-center py-5">
+    <div class="container">
+      <p class="mb-2">&copy; 2026 Yung Chia Lin. All Rights Reserved.</p>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
