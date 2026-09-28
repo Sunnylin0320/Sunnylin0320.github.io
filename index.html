@@ -1,308 +1,1522 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yung Chia Lin | Software Engineer Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sunny Lin | Software Engineer</title>
+  <meta name="description"
+    content="Sunny (Yung Chia) Lin, software engineer with an MSc in Computer Science from the University of Bath. Full-stack web apps in Python, Django, React and Node.js.">
+  <meta property="og:title" content="Sunny Lin | Software Engineer">
+  <meta property="og:description" content="Full-stack software engineer. Python, Django, React, Node.js.">
+  <meta property="og:url" content="https://yungchialin.com/">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect x='2' y='1' width='4' height='6' fill='%23FFC53D'/><rect x='1' y='2' width='6' height='4' fill='%23FFC53D'/><rect x='3' y='3' width='1' height='1' fill='%231D2345'/><rect x='5' y='3' width='1' height='1' fill='%231D2345'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Figtree:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
+    :root {
+      --paper: #F3F6FF;
+      --panel: #FFFFFF;
+      --ink: #1D2345;
+      --muted: #545B80;
+      --line: #C9D0EE;
+      --sun: #FFC53D;
+      --sun-soft: #FFF1C7;
+      --orange: #FF7A3D;
+      --sky: #4DA8FF;
+      --sky-soft: #DDEEFF;
+      --mint: #2DBE85;
+      --mint-soft: #D5F5E7;
+      --pink: #FF8FB1;
+      --pink-soft: #FFE1EA;
+      --pixel: "Pixelify Sans", "Courier New", monospace;
+      --sans: "Figtree", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
-      color: #333;
     }
 
-    .hero-section {
-      padding: 140px 0;
-      background: radial-gradient(circle at top right, #f8f9fa, #e9ecef);
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
 
-    .section-padding {
-      padding: 100px 0;
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .bg-soft-blue {
-      background-color: #f0f4f8;
+    a {
+      color: var(--ink);
+      text-decoration-color: var(--orange);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
     }
 
-    .project-card {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      transition: all 0.3s ease;
-      background: #fff;
+    a:hover {
+      color: var(--orange);
     }
 
-    .project-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    :focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 3px;
     }
 
-    .timeline {
-      padding-left: 10px;
+    .wrap {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 22px;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    /* ---------- Nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(243, 246, 255, 0.94);
+      backdrop-filter: blur(6px);
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+
+    .brand {
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--pixel);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .brand svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    @media (max-width: 600px) {
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links .hide-sm {
+        display: none;
+      }
+    }
+
+    /* ---------- Pixel box ---------- */
+    .box {
+      background: var(--panel);
+      border: 2px solid var(--ink);
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+
+    /* ---------- Hero scene ---------- */
+    .hero {
+      padding: 40px 0 24px;
+    }
+
+    .scene-wrap {
       position: relative;
     }
 
-    .timeline-item {
+    .scene {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 2px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      image-rendering: pixelated;
+      background: #74BDFF;
+    }
+
+    .scene rect {
+      shape-rendering: crispEdges;
+    }
+
+    .sky-band {
+      transition: fill 600ms ease;
+    }
+
+    .sun-group {
+      transition: transform 700ms cubic-bezier(.3, 1.4, .5, 1);
+      cursor: pointer;
+    }
+
+    .sun-group:hover .sun-rays {
+      opacity: 1;
+    }
+
+    .sun-rays {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: spin 14s linear infinite;
+    }
+
+    .cloud {
+      animation: drift linear infinite;
+    }
+
+    .cloud.c1 {
+      animation-duration: 38s;
+    }
+
+    .cloud.c2 {
+      animation-duration: 55s;
+      animation-delay: -20s;
+    }
+
+    .cloud.c3 {
+      animation-duration: 46s;
+      animation-delay: -34s;
+    }
+
+    .code-line {
+      transform-box: fill-box;
+      transform-origin: left center;
+      animation: type 6s steps(8) infinite;
+    }
+
+    .stars rect {
+      transition: opacity 600ms;
+    }
+
+    .blink {
+      animation: blink 1s steps(1) infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes drift {
+      from {
+        transform: translateX(-40px);
+      }
+
+      to {
+        transform: translateX(180px);
+      }
+    }
+
+    @keyframes type {
+      0% {
+        transform: scaleX(0);
+      }
+
+      45%,
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .sun-rays,
+      .cloud,
+      .code-line,
+      .blink {
+        animation: none;
+      }
+
+      .sun-group,
+      .sky-band {
+        transition: none;
+      }
+    }
+
+    .sun-btn {
+      position: absolute;
+      width: 14%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .scene-caption {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 6px 16px;
+      margin: 16px 2px 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .scene-caption strong {
+      color: var(--ink);
+    }
+
+    .time-chip {
+      font-family: var(--pixel);
+      font-size: 1rem;
+      color: var(--ink);
+      background: var(--sun-soft);
+      border: 2px solid var(--ink);
+      padding: 0 8px;
+    }
+
+    .intro {
+      padding: 44px 0 56px;
+    }
+
+    .intro .actions {
+      margin-top: 28px;
+    }
+
+    .intro h1 {
+      font-family: var(--pixel);
+      font-weight: 700;
+      font-size: clamp(3rem, 9vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      margin: 0 0 18px;
+    }
+
+    .intro h1 .dot {
+      color: var(--orange);
+    }
+
+    .fullname {
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    .lede {
+      font-size: 1.2rem;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 46ch;
+      margin: 0;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      font: 700 1rem var(--sans);
+      color: var(--ink);
+      text-decoration: none;
+      background: var(--panel);
+      border: 2px solid var(--ink);
+      box-shadow: 3px 3px 0 var(--ink);
+      cursor: pointer;
+      transition: transform 80ms, box-shadow 80ms;
+    }
+
+    .btn:hover {
+      color: var(--ink);
+      background: var(--sun-soft);
+    }
+
+    .btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 0 0 0 var(--ink);
+    }
+
+    .btn.sun {
+      background: var(--sun);
+    }
+
+    .btn.sun:hover {
+      background: #FFD66E;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 64px 0;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .sec-head h2 {
+      font-family: var(--pixel);
+      font-weight: 700;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      margin: 0;
+      line-height: 1;
+    }
+
+    .sec-head svg {
+      width: 30px;
+      height: 30px;
+      flex: none;
+    }
+
+    .sec-sub {
+      color: var(--muted);
+      margin: -16px 0 28px;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 0;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    /* About + card deck */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @media (max-width: 860px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-grid .prose {
+      max-width: 62ch;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 480px) {
+      .skills {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .skill {
+      padding: 12px 14px;
+      border: 2px solid var(--ink);
+    }
+
+    .skill h4 {
+      margin: 0 0 2px;
+      font-size: 0.95rem;
+    }
+
+    .skill p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--ink);
+    }
+
+    .skill.s1 {
+      background: var(--sun-soft);
+    }
+
+    .skill.s2 {
+      background: var(--sky-soft);
+    }
+
+    .skill.s3 {
+      background: var(--mint-soft);
+    }
+
+    .skill.s4 {
+      background: var(--pink-soft);
+    }
+
+    .deck {
+      padding: 22px;
+    }
+
+    .deck h3 {
+      font-family: var(--pixel);
+      font-weight: 700;
+      font-size: 1.35rem;
+    }
+
+    .deck>p {
+      color: var(--muted);
+      margin: 4px 0 18px;
+      font-size: 0.975rem;
+    }
+
+    .card-slot {
       position: relative;
-      padding-left: 30px;
-      padding-bottom: 40px;
-      border-left: 3px solid #0d6efd;
+      min-height: 190px;
     }
 
-    .timeline-item:last-child {
-      border-left: 3px solid transparent;
+    .fact {
+      border: 2px solid var(--ink);
+      padding: 18px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: var(--sun-soft);
     }
 
-    .timeline-item::before {
+    .fact.pop {
+      animation: pop 320ms cubic-bezier(.3, 1.5, .5, 1);
+    }
+
+    @keyframes pop {
+      from {
+        transform: translateY(-14px) rotate(-3deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fact.pop {
+        animation: none;
+      }
+    }
+
+    .fact-num {
+      font-family: var(--pixel);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .fact-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      line-height: 1.45;
+      margin: 8px 0 0;
+    }
+
+    .fact-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-top: 12px;
+    }
+
+    .deck .btn {
+      margin-top: 16px;
+    }
+
+    /* Featured project */
+    .feature {
+      padding: 30px;
+      background: var(--panel);
+    }
+
+    @media (max-width: 600px) {
+      .feature {
+        padding: 20px;
+      }
+    }
+
+    .ribbon {
+      display: inline-block;
+      font-family: var(--pixel);
+      font-size: 1rem;
+      background: var(--mint);
+      color: #fff;
+      border: 2px solid var(--ink);
+      padding: 1px 10px;
+      margin-bottom: 14px;
+    }
+
+    .feature h3 {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      letter-spacing: -0.02em;
+      max-width: 28ch;
+      margin-bottom: 12px;
+    }
+
+    .feature .summary {
+      max-width: 64ch;
+      font-size: 1.075rem;
+    }
+
+    .feature-body {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 32px;
+      margin-top: 22px;
+    }
+
+    @media (max-width: 860px) {
+      .feature-body {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+    }
+
+    .checks {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .checks li {
+      position: relative;
+      padding-left: 26px;
+      margin-bottom: 12px;
+    }
+
+    .checks li::before {
       content: "";
       position: absolute;
-      left: -7.5px;
-      top: 5px;
+      left: 0;
+      top: 7px;
       width: 12px;
       height: 12px;
-      border-radius: 50%;
-      background: #0d6efd;
-      border: 3px solid #fff;
-      box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
-      z-index: 1;
+      background: var(--sun);
+      border: 2px solid var(--ink);
     }
 
-    .skill-badge {
-      background: #e9ecef;
-      color: #495057;
-      padding: 6px 15px;
-      border-radius: 50px;
+    .checks li:nth-child(2)::before {
+      background: var(--sky);
+    }
+
+    .checks li:nth-child(3)::before {
+      background: var(--mint);
+    }
+
+    .checks li:nth-child(4)::before {
+      background: var(--pink);
+    }
+
+    .checks li:nth-child(5)::before {
+      background: var(--orange);
+    }
+
+    .arch {
+      margin: 0;
+      padding: 16px;
+      background: var(--sky-soft);
+      border: 2px solid var(--ink);
+      align-self: start;
+    }
+
+    .arch-title {
+      font-family: var(--pixel);
+      font-size: 1.1rem;
+      margin: 0 0 10px;
+    }
+
+    .arch svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .arch figcaption {
       font-size: 0.9rem;
-      margin: 5px;
-      display: inline-block;
+      color: var(--muted);
+      margin-top: 10px;
     }
 
-    .navbar-brand {
-      letter-spacing: 1px;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 22px 0 0;
+      padding: 0;
+    }
+
+    .tags li {
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border: 2px solid var(--ink);
+      background: var(--panel);
+    }
+
+    .feature .actions {
+      margin-top: 22px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 720px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project {
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project .icon {
+      width: 44px;
+      height: 44px;
+      margin-bottom: 12px;
+    }
+
+    .project p {
+      color: var(--muted);
+      margin: 8px 0 0;
+      flex: 1;
+    }
+
+    .project .tags {
+      margin-top: 14px;
+    }
+
+    .project .code {
+      margin-top: 16px;
+      font-weight: 700;
+    }
+
+    /* Experience */
+    .timeline {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 12px;
+      bottom: 12px;
+      width: 0;
+      border-left: 2px dashed var(--ink);
+    }
+
+    .role {
+      position: relative;
+      padding: 0 0 26px 40px;
+    }
+
+    .role:last-child {
+      padding-bottom: 0;
+    }
+
+    .role::before {
+      content: "";
+      position: absolute;
+      left: 1px;
+      top: 8px;
+      width: 16px;
+      height: 16px;
+      background: var(--sun);
+      border: 2px solid var(--ink);
+    }
+
+    .role:nth-child(2)::before {
+      background: var(--sky);
+    }
+
+    .role:nth-child(3)::before {
+      background: var(--pink);
+    }
+
+    .role-card {
+      padding: 18px 20px;
+    }
+
+    .role-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px 16px;
+    }
+
+    .role-org {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .date {
+      font-family: var(--pixel);
+      font-size: 0.95rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .role ul {
+      list-style: disc;
+      margin: 10px 0 0;
+      padding-left: 20px;
+      max-width: 72ch;
+    }
+
+    .role li {
+      margin-bottom: 6px;
+    }
+
+    .role li::marker {
+      color: var(--orange);
+    }
+
+    .edu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 720px) {
+      .edu {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .edu .box {
+      padding: 20px;
+    }
+
+    .edu p {
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    .edu .date {
+      display: block;
+      margin-top: 6px;
+    }
+
+    /* Contact */
+    .contact-box {
+      padding: 36px;
+      background: var(--sun);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .contact-box {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+    }
+
+    .contact-box svg.env {
+      width: 110px;
+      height: auto;
+    }
+
+    .contact-box h2 {
+      font-family: var(--pixel);
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin: 0 0 8px;
+      line-height: 1;
+    }
+
+    .contact-box p {
+      max-width: 52ch;
+    }
+
+    .contact-box .btn {
+      background: var(--panel);
+    }
+
+    footer {
+      padding: 36px 0 44px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
     }
   </style>
 </head>
 
 <body>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">YUNG CHIA LIN</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="navbar-nav ms-auto text-uppercase" style="font-size: 0.85rem; font-weight: 600;">
-          <a class="nav-link px-3" href="#about">About</a>
-          <a class="nav-link px-3" href="#experience">Experience</a>
-          <a class="nav-link px-3" href="#education">Education</a>
-          <a class="nav-link px-3" href="#projects">Projects</a>
-        </div>
+  <nav class="nav" aria-label="Main">
+    <div class="wrap">
+      <a class="brand" href="#top">
+        <svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true">
+          <rect x="2" y="1" width="4" height="6" fill="#FFC53D" />
+          <rect x="1" y="2" width="6" height="4" fill="#FFC53D" />
+          <rect x="3" y="3" width="1" height="1" fill="#1D2345" />
+          <rect x="5" y="3" width="1" height="1" fill="#1D2345" />
+          <rect x="2" y="1" width="4" height="1" fill="#FF7A3D" />
+        </svg>
+        Sunny Lin
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="hide-sm">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <section class="hero-section">
-    <div class="container text-start">
-      <h1 class="display-3 fw-bold mb-3">Yung Chia Lin</h1>
-      <p class="lead mb-4 text-secondary">MSc Computer Science Student at University of Bath | Software Engineer</p>
-      <div class="mb-5">
-        <a href="https://github.com/Sunnylin0320" target="_blank" class="text-dark me-4 text-decoration-none">
-          <i class="bi bi-github" style="font-size: 2.2rem;"></i>
-        </a>
-        <a href="https://linkedin.com/in/sunny-lin-a39232176" target="_blank"
-          class="text-dark me-4 text-decoration-none">
-          <i class="bi bi-linkedin" style="font-size: 2.2rem;"></i>
-        </a>
-        <a href="mailto:sunnylinyungchia@gmail.com" class="text-dark text-decoration-none">
-          <i class="bi bi-envelope-fill" style="font-size: 2.2rem;"></i>
-        </a>
+  <header id="top" class="hero">
+    <div class="wrap">
+      <div class="scene-wrap">
+        <svg class="scene" id="scene" viewBox="0 0 160 72" role="img"
+          aria-label="A pixel-art desk under the sky: a laptop typing code, a coffee mug, a plant, drifting clouds, and a smiling sun.">
+          <g id="sky"></g>
+          <g id="stars" class="stars"></g>
+          <g id="clouds"></g>
+          <g id="sun" class="sun-group"></g>
+          <g id="desk"></g>
+        </svg>
+        <button class="sun-btn" id="sun-btn" type="button" aria-label="Change the time of day"></button>
       </div>
-    </div>
-  </section>
+      <div class="scene-caption">
+        <span>Select the sun to change the time of day.</span>
+        <span>Current setting: <span class="time-chip" id="time-label">morning</span></span>
+      </div>
 
-  <section id="about" class="section-padding">
-    <div class="container text-start">
-      <div class="row">
-        <div class="col-md-9">
-          <h2 class="fw-bold mb-4">About Me</h2>
-  
-          <p class="fs-5 text-muted mb-3">
-            I am a postgraduate student currently pursuing an MSc in Computer Science at the University of Bath.
-          </p>
-  
-          <p class="fs-5 text-muted mb-3">
-            Transitioning from a Bachelor of Business Administration (BBA) background, I possess a unique blend of
-            business acumen and technical problem-solving skills.
-          </p>
-  
-          <p class="fs-5 text-muted mb-5">
-            I am passionate about solving complex problems through code, with a strong focus on Artificial Intelligence
-            and software development.
-          </p>
-  
+      <div class="intro">
+        <div>
+          <h1>Sunny Lin<span class="dot">.</span></h1>
+          <p class="fullname">Yung Chia (Sunny) Lin, Software Engineer</p>
+          <p class="lede">Specialising in full-stack web development, with industry experience delivering
+            business-critical systems and an MSc in Computer Science from the University of Bath.</p>
+        </div>
+        <div class="actions">
+          <a class="btn sun" href="mailto:sunnylinyungchia@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true">
+              <rect x="3" y="5" width="18" height="14" />
+              <path d="m3 7 9 6 9-6" />
+            </svg>
+            Email me
+          </a>
+          <a class="btn" href="https://github.com/Sunnylin0320" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z" />
+            </svg>
+            GitHub
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/yung-chia-lin-a39232176" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path
+                d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z" />
+            </svg>
+            LinkedIn
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section id="experience" class="section-padding bg-soft-blue">
-    <div class="container">
-      <h2 class="fw-bold mb-5 text-start">Work Experience</h2>
-      <div class="row">
-        <div class="col-md-11">
-          <div class="timeline">
-
-            <div class="timeline-item">
-              <div class="d-flex justify-content-between align-items-start flex-wrap">
-                <h4 class="fw-bold text-primary">Winmate – Software Engineer</h4>
-                <span class="badge bg-secondary mb-2">Dec 2023 - Mar 2025</span>
-              </div>
-              <p class="text-muted mb-3">
-                Full-stack development and system optimization for enterprise-level operations.
-              </p>
-              <ul>
-                <li>Designed and implemented a full-stack <strong>Repair Management System</strong> using
-                  Python/Django/MySQL; currently essential for daily operations, supporting <strong>300+ staff</strong>
-                  and processing <strong>500+ repairs per month</strong>.</li>
-                <li>Developed a custom <strong>Employee Attendance Tracking System</strong> (Python/Django), automating
-                  reporting and optimizing workforce tracking through extensive cross-departmental consultation.</li>
-                <li>Launched the <strong>GPMS (Green Product Management System)</strong>, automating mandated data
-                  reporting and compliance, resulting in an annual saving of over <strong>GBP £10,000</strong> in
-                  operational costs.</li>
-                <li>Managed and customized the <strong>Odoo ERP</strong> system, focusing on inventory and approval
-                  module
-                  enhancements to streamline internal workflows.</li>
-              </ul>
-            </div>
-
-            <div class="timeline-item">
-              <div class="d-flex justify-content-between align-items-start flex-wrap">
-                <h4 class="fw-bold text-primary">FastBridge – Software Intern</h4>
-                <span class="badge bg-secondary mb-2">Apr 2023 - Sep 2023</span>
-              </div>
-              <ul>
-                <li>Conducted comprehensive <strong>manual and exploratory testing</strong> across Web/Mobile platforms
-                  to
-                  validate new features against user requirements.</li>
-                <li>Created low-fidelity wireframes and interactive prototypes using <strong>Axure</strong>,
-                  collaborating
-                  with designers to optimize user flow.</li>
-                <li>Authored accessible user manuals, translating complex application workflows into guides that
-                  significantly improved feature adoption.</li>
-              </ul>
-            </div>
-
-            <div class="timeline-item">
-              <div class="d-flex justify-content-between align-items-start flex-wrap">
-                <h4 class="fw-bold text-primary">Union Chemical – Specialist</h4>
-                <span class="badge bg-secondary mb-2">Mar 2021 - Mar 2023</span>
-              </div>
-              <ul>
-                <li>Managed end-to-end inbound/outbound shipments, implementing verification standards to ensure high
-                  inventory accuracy.</li>
-                <li>Served as the central coordinator across internal departments to ensure compliant handling of
-                  sensitive inventory.</li>
-              </ul>
-            </div>
-
-          </div>
+  <main>
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-head">
+          <svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true">
+            <rect x="2" y="0" width="4" height="4" fill="#FF8FB1" stroke="none" />
+            <rect x="1" y="5" width="6" height="3" fill="#FF8FB1" />
+            <rect x="3" y="1" width="1" height="1" fill="#1D2345" />
+            <rect x="5" y="1" width="1" height="1" fill="#1D2345" />
+          </svg>
+          <h2>About me</h2>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="education" class="section-padding">
-    <div class="container">
-      <h2 class="fw-bold mb-5 text-start">Education</h2>
-      <div class="row">
-        <div class="col-md-11">
-          <div class="timeline">
-            <div class="timeline-item">
-              <h4 class="fw-bold text-primary">MSc Computer Science</h4>
-              <p class="mb-1 fw-bold">University of Bath | 2025 - Present</p>
-              <ul>
-                <li>Awarded a postgraduate scholarship for academic excellence.</li>
-              </ul>
-            </div>
-            <div class="timeline-item">
-              <h4 class="fw-bold text-primary">Bachelor of Business Administration (BBA)</h4>
-              <p class="mb-1 fw-bold">National United University</p>
-              <ul>
-                <li>Developed strong analytical and strategic thinking skills from a business perspective.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section-padding bg-soft-blue">
-    <div class="container">
-      <h2 class="fw-bold mb-5 text-start">Projects</h2>
-      <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card h-100 project-card p-3">
-            <div class="card-body text-start">
-              <h5 class="card-title fw-bold mb-3">Full-stack Expense Tracker</h5>
-              <p class="card-text text-muted mb-4">
-                A complete web application developed with <strong>Node.js</strong> and <strong>Express</strong> using
-                <strong>MVC architecture</strong>.
-                Features category-based expense management and data persistence with <strong>MongoDB</strong>.
-              </p>
-              <div class="mt-auto">
-                <span class="badge bg-dark px-3 py-2">Node.js</span>
-                <span class="badge bg-success px-3 py-2">Express</span>
-                <span class="badge bg-secondary px-3 py-2">MongoDB</span>
+        <div class="about-grid">
+          <div class="prose">
+            <p>I am a software engineer with a background in business administration. After completing a BBA and two
+              years in operations, I moved into software engineering. At Winmate, I designed and delivered internal
+              systems that are used daily by more than 300 staff. My business background helps me understand user
+              requirements and translate them into practical technical solutions.</p>
+            <p>I recently completed an MSc in Computer Science at the University of Bath, where I was awarded a
+              postgraduate scholarship for academic excellence. I am currently seeking software engineering roles in the
+              UK.</p>
+            <div class="skills">
+              <div class="skill s1">
+                <h4>Languages</h4>
+                <p>HTML, XML, CSS, JavaScript, Python, Node.js, Java, C, SQL</p>
               </div>
-              <div class="mt-3">
-                <a href="https://github.com/Sunnylin0320/expense-tracker" target="_blank"
-                  class="btn btn-outline-primary btn-sm">
-                  <i class="bi bi-github"></i> View Code
-                </a>
+              <div class="skill s2">
+                <h4>Frameworks</h4>
+                <p>Django, React.js, Express.js</p>
+              </div>
+              <div class="skill s3">
+                <h4>Database</h4>
+                <p>MySQL, PostgreSQL, SQL Server, MongoDB</p>
+              </div>
+              <div class="skill s4">
+                <h4>Tools</h4>
+                <p>Git, Linux, Odoo ERP, Figma</p>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card h-100 project-card p-3">
-            <div class="card-body text-start d-flex flex-column">
-              <h5 class="card-title fw-bold mb-3">Alphitter Social Platform</h5>
-              <p class="card-text text-muted mb-4">
-                A decoupled full-stack social media application. Built with a <strong>React</strong> frontend and a
-                <strong>Node.js/Express</strong> backend.
-                Features user authentication, posting, and real-time interaction capabilities using <strong>MySQL</strong>.
-              </p>
-              <div class="mt-auto">
-                <span class="badge bg-info text-dark px-3 py-2">React</span>
-                <span class="badge bg-dark px-3 py-2">Node.js</span>
-                <span class="badge bg-primary px-3 py-2">MySQL</span>
-              </div>
-              <div class="mt-3">
-                <a href="https://github.com/paulwu-tw/twitter-api-2020" target="_blank"
-                  class="btn btn-outline-primary btn-sm">
-                  <i class="bi bi-github"></i> View Code
-                </a>
+
+          <div class="box deck" aria-labelledby="deck-title">
+            <h3 id="deck-title">Key highlights</h3>
+            <p>A selection of achievements from my professional experience and studies.</p>
+            <div class="card-slot" aria-live="polite">
+              <div class="fact" id="fact">
+                <div>
+                  <span class="fact-num" id="fact-num">Highlight 1 of 6</span>
+                  <p class="fact-text" id="fact-text">Designed and built a repair management system at Winmate that processes over
+                    500 repairs per month.</p>
+                </div>
+                <a class="fact-link" id="fact-link" href="#experience">See the details</a>
               </div>
             </div>
+            <button class="btn sun" id="draw" type="button">Next highlight</button>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          </div>
+          </div>
+          </section>
+          
+          <section id="projects">
+            <div class="wrap">
+              <div class="sec-head">
+                <svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true">
+                  <rect x="0" y="1" width="8" height="6" fill="#1D2345" />
+                  <rect x="1" y="3" width="6" height="3" fill="#DDEEFF" />
+                  <rect x="1" y="2" width="1" height="1" fill="#FF7A3D" />
+                  <rect x="2" y="2" width="1" height="1" fill="#FFC53D" />
+                  <rect x="3" y="2" width="1" height="1" fill="#2DBE85" />
+                </svg>
+                <h2>Projects</h2>
+              </div>
+          
+              <article class="box feature" aria-labelledby="diss-title">
+                <span class="ribbon">MSc dissertation, 2026</span>
+                <h3 id="diss-title">From Desktop to Browser: A Web-Based Redesign of the RaPToR Robot Teleoperation Interface</h3>
+                <p class="summary">RaPToR is a ROS&nbsp;2 toolkit for human-robot interaction research at the University of Bath.
+                  Its original Python Tkinter interface had to be installed and configured on every machine used in a study. I
+                  replaced it with a React web application and a new Python bridge service, so researchers can operate the robot
+                  from any modern browser with no local installation.</p>
+          
+                <div class="feature-body">
+                  <ul class="checks">
+                    <li>Built the <strong>React frontend</strong> with separate panels for connection status, live sensor
+                      monitoring, movement control, built-in actions, recording management and a command terminal, plus switching
+                      between two simulation environments.</li>
+                    <li>Developed a <strong>Python ROS&nbsp;2 bridge</strong> that exposes <strong>35 sensor topics</strong> over
+                      WebSocket, streams only the ones a researcher enables, and runs all <strong>8 built-in robot
+                        actions</strong> with full sent, accepted and result feedback.</li>
+                    <li>Chose a purpose-built bridge over the planned rosbridge and roslibjs approach, because action lifecycle
+                      handling, recording playback and selective sensor streaming need stateful logic that a generic message relay
+                      does not provide.</li>
+                    <li>Diagnosed a <strong>timing race condition</strong> that stopped the simulated robot from accepting
+                      commands on an ARM64 virtual machine without GPU acceleration, and resolved it with an automated
+                      detect-and-retry start-up script.</li>
+                    <li>Resolved silent data loss caused by <strong>QoS mismatches</strong> between subscribers and several
+                      Create&nbsp;3 topics, by verifying each topic's QoS profile against the running system.</li>
+                    <li>Evaluated the interface through a <strong>heuristic evaluation</strong> against Nielsen's ten usability
+                      heuristics and a structured comparison with the original GUI, which showed improvements on five of seven
+                      criteria.</li>
+                  </ul>
+          
+                  <figure class="arch" aria-labelledby="arch-title">
+                    <p class="arch-title" id="arch-title">How it fits together</p>
+                    <svg viewBox="0 0 300 236" role="img"
+                      aria-label="The React frontend talks to the Python bridge over two WebSocket channels: port 6789 for outgoing data and port 6790 for incoming commands. The bridge talks to the iRobot Create 3, simulated in Gazebo or physical, through ROS 2 topics and actions.">
+                      <defs>
+                        <marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                          <path d="M0 0 L10 5 L0 10z" fill="#2DBE85" />
+                        </marker>
+                        <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+                          <path d="M0 0 L10 5 L0 10z" fill="#FF7A3D" />
+                        </marker>
+                        <marker id="a3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6"
+                          orient="auto-start-reverse">
+                          <path d="M0 0 L10 5 L0 10z" fill="#1D2345" />
+                        </marker>
+                      </defs>
+                      <g font-family="Figtree, Arial, sans-serif" fill="#1D2345">
+                        <rect x="64" y="8" width="180" height="46" fill="#1D2345" />
+                        <rect x="60" y="4" width="180" height="46" fill="#FFC53D" stroke="#1D2345" stroke-width="2" />
+                        <text x="150" y="24" text-anchor="middle" font-weight="800" font-size="13">React frontend</text>
+                        <text x="150" y="40" text-anchor="middle" font-size="11">in any browser</text>
+          
+                        <rect x="64" y="98" width="180" height="46" fill="#1D2345" />
+                        <rect x="60" y="94" width="180" height="46" fill="#FFFFFF" stroke="#1D2345" stroke-width="2" />
+                        <text x="150" y="114" text-anchor="middle" font-weight="800" font-size="13">Python bridge</text>
+                        <text x="150" y="130" text-anchor="middle" font-size="11">ros_bridge.py, ROS 2 node</text>
+          
+                        <rect x="64" y="188" width="180" height="46" fill="#1D2345" />
+                        <rect x="60" y="184" width="180" height="46" fill="#FF8FB1" stroke="#1D2345" stroke-width="2" />
+                        <text x="150" y="204" text-anchor="middle" font-weight="800" font-size="13">iRobot Create 3</text>
+                        <text x="150" y="220" text-anchor="middle" font-size="11">Gazebo or physical robot</text>
+          
+                        <line x1="108" y1="90" x2="108" y2="56" stroke="#2DBE85" stroke-width="2.5" marker-end="url(#a1)" />
+                        <text x="102" y="77" text-anchor="end" font-size="11" font-weight="600">data :6789</text>
+                        <line x1="192" y1="54" x2="192" y2="88" stroke="#FF7A3D" stroke-width="2.5" marker-end="url(#a2)" />
+                        <text x="198" y="77" font-size="11" font-weight="600">cmds :6790</text>
+                        <line x1="150" y1="146" x2="150" y2="178" stroke="#1D2345" stroke-width="2" marker-start="url(#a3)"
+                          marker-end="url(#a3)" />
+                        <text x="158" y="166" font-size="11" font-weight="600">topics, actions</text>
+                      </g>
+                    </svg>
+                    <figcaption>The bridge is the only process that speaks both ROS 2 and WebSocket, with one channel for outgoing
+                      data and one for incoming commands.</figcaption>
+                  </figure>
+                </div>
+          
+                <ul class="tags" aria-label="Technologies">
+                  <li>React</li>
+                  <li>JavaScript</li>
+                  <li>Python</li>
+                  <li>WebSocket</li>
+                  <li>ROS 2</li>
+                  <li>Gazebo</li>
+                  <li>Linux</li>
+                </ul>
+                <div class="actions">
+                  <a class="btn sun" href="https://github.com/Sunnylin0320/raptor-web" target="_blank" rel="noopener">Frontend
+                    code</a>
+                  <a class="btn" href="https://github.com/Sunnylin0320/RaPToR-Toolkit-react" target="_blank" rel="noopener">Bridge
+                    code</a>
+                </div>
+              </article>
+          
+              <div class="projects">
+                <article class="box project">
+                  <svg class="icon" viewBox="0 0 11 11" shape-rendering="crispEdges" aria-hidden="true">
+                    <rect x="0" y="1" width="11" height="8" fill="#1D2345" />
+                    <rect x="1" y="2" width="9" height="6" fill="#DDEEFF" />
+                    <rect x="2" y="9" width="2" height="2" fill="#1D2345" />
+                    <rect x="2" y="3" width="2" height="2" fill="#4DA8FF" />
+                    <rect x="5" y="3" width="4" height="1" fill="#1D2345" />
+                    <rect x="5" y="5" width="3" height="1" fill="#545B80" />
+                    <rect x="2" y="6" width="1" height="1" fill="#FF8FB1" />
+                  </svg>
+                  <h3>Alphitter social platform</h3>
+                  <p>A Twitter-style social app with a React frontend and a separate Node.js and Express API. Includes user
+                    authentication, posting and real-time interaction, backed by MySQL.</p>
+                  <ul class="tags" aria-label="Technologies">
+                    <li>React</li>
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MySQL</li>
+                  </ul>
+                  <a class="code" href="https://github.com/paulwu-tw/twitter-api-2020" target="_blank" rel="noopener">View
+                    code</a>
+                </article>
+                <article class="box project">
+                  <svg class="icon" viewBox="0 0 11 11" shape-rendering="crispEdges" aria-hidden="true">
+                    <rect x="2" y="3" width="7" height="7" fill="#2DBE85" />
+                    <rect x="1" y="4" width="9" height="5" fill="#2DBE85" />
+                    <rect x="3" y="1" width="5" height="2" fill="#1D2345" />
+                    <rect x="4" y="5" width="3" height="3" fill="#FFC53D" />
+                    <rect x="5" y="5" width="1" height="3" fill="#FF7A3D" />
+                  </svg>
+                  <h3>Expense tracker</h3>
+                  <p>A full-stack web app for recording and categorising spending, built with Node.js and Express in an MVC
+                    structure, with data stored in MongoDB.</p>
+                  <ul class="tags" aria-label="Technologies">
+                    <li>Node.js</li>
+                    <li>Express</li>
+                    <li>MongoDB</li>
+                  </ul>
+                  <a class="code" href="https://github.com/Sunnylin0320/expense-tracker" target="_blank" rel="noopener">View
+                    code</a>
+                </article>
+              </div>
+            </div>
+          </section>
+          
+          <section id="experience">
+            <div class="wrap">
+              <div class="sec-head">
+                <svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true">
+                  <rect x="0" y="2" width="8" height="6" fill="#FF7A3D" />
+                  <rect x="2" y="0" width="4" height="2" fill="#1D2345" />
+                  <rect x="3" y="1" width="2" height="1" fill="#FF7A3D" />
+                  <rect x="0" y="4" width="8" height="1" fill="#1D2345" />
+                  <rect x="3" y="4" width="2" height="2" fill="#FFC53D" />
+                </svg>
+                <h2>Experience</h2>
+              </div>
+              <ol class="timeline">
+                <li class="role">
+                  <div class="box role-card">
+                    <div class="role-head">
+                      <h3>Software Engineer <span class="role-org">at Winmate</span></h3>
+                      <span class="date">Dec 2023 to Mar 2025</span>
+                    </div>
+                    <ul>
+                      <li>Designed and built a full-stack <strong>repair management system</strong> in Python, Django and MySQL.
+                        It is used daily by <strong>300+ staff</strong> and handles <strong>500+ repairs per month</strong>.</li>
+                      <li>Launched a <strong>green product management system</strong> that automated regulatory compliance
+                        reporting, saving over <strong>£10,000 a year</strong> in operating costs.</li>
+                      <li>Built an <strong>employee attendance tracking system</strong> in Django, gathering requirements from
+                        several departments and automating their reporting.</li>
+                      <li>Customised the <strong>Odoo ERP</strong> inventory and approval modules to simplify internal workflows.
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="role">
+                  <div class="box role-card">
+                    <div class="role-head">
+                      <h3>Software Intern <span class="role-org">at FastBridge</span></h3>
+                      <span class="date">Apr 2023 to Sep 2023</span>
+                    </div>
+                    <ul>
+                      <li>Ran manual and exploratory testing of new web and mobile features against user requirements.</li>
+                      <li>Created wireframes and interactive prototypes in Axure with the design team to improve user flows.</li>
+                      <li>Authored user guides for complex workflows, improving the adoption of new features.</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="role">
+                  <div class="box role-card">
+                    <div class="role-head">
+                      <h3>Specialist <span class="role-org">at Union Chemical</span></h3>
+                      <span class="date">Mar 2021 to Mar 2023</span>
+                    </div>
+                    <ul>
+                      <li>Managed inbound and outbound shipments end to end, and introduced verification checks to maintain
+                        inventory accuracy.</li>
+                      <li>Coordinated across departments to ensure sensitive stock was handled in compliance with regulations.
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+              </ol>
+            </div>
+          </section>
+          
+          <section id="education">
+            <div class="wrap">
+              <div class="sec-head">
+                <svg viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true">
+                  <rect x="0" y="2" width="8" height="2" fill="#1D2345" />
+                  <rect x="2" y="1" width="4" height="1" fill="#1D2345" />
+                  <rect x="2" y="4" width="4" height="2" fill="#4DA8FF" />
+                  <rect x="7" y="4" width="1" height="3" fill="#FFC53D" />
+                </svg>
+                <h2>Education</h2>
+              </div>
+              <div class="edu">
+                <div class="box" style="background: var(--sky-soft);">
+                  <h3>MSc Computer Science</h3>
+                  <span class="role-org">University of Bath</span>
+                  <span class="date">2025 to 2026</span>
+                  <p>Postgraduate scholarship for academic excellence. Dissertation: a web-based redesign of the RaPToR robot
+                    teleoperation interface, built with React and ROS&nbsp;2.</p>
+                </div>
+                <div class="box" style="background: var(--pink-soft);">
+                  <h3>BBA, Business Administration</h3>
+                  <span class="role-org">National United University, Taiwan</span>
+                  <p>Built strong analytical and strategic thinking from a business perspective.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <section id="contact">
+            <div class="wrap">
+              <div class="box contact-box">
+                <svg class="env" viewBox="0 0 14 10" shape-rendering="crispEdges" aria-hidden="true">
+                  <rect x="0" y="0" width="14" height="10" fill="#1D2345" />
+                  <rect x="1" y="1" width="12" height="8" fill="#FFFFFF" />
+                  <rect x="1" y="1" width="1" height="1" fill="#1D2345" />
+                  <rect x="12" y="1" width="1" height="1" fill="#1D2345" />
+                  <rect x="2" y="2" width="1" height="1" fill="#1D2345" />
+                  <rect x="11" y="2" width="1" height="1" fill="#1D2345" />
+                  <rect x="3" y="3" width="1" height="1" fill="#1D2345" />
+                  <rect x="10" y="3" width="1" height="1" fill="#1D2345" />
+                  <rect x="4" y="4" width="1" height="1" fill="#1D2345" />
+                  <rect x="9" y="4" width="1" height="1" fill="#1D2345" />
+                  <rect x="5" y="5" width="4" height="1" fill="#1D2345" />
+                  <rect x="10" y="6" width="2" height="2" fill="#FF7A3D" />
+                </svg>
+                <div>
+                  <h2>Get in touch</h2>
+                  <p>I am open to graduate and junior software engineering opportunities across the UK, including full-stack,
+                    frontend and backend roles. Please feel free to contact me by email.</p>
+                  <div class="actions">
+                    <a class="btn" href="mailto:sunnylinyungchia@gmail.com">sunnylinyungchia@gmail.com</a>
+                    <a class="btn" href="https://linkedin.com/in/sunny-lin-a39232176" target="_blank" rel="noopener">LinkedIn</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          </main>
+          
+          <footer>
+            <div class="wrap">
+              <span>© 2026 Sunny Lin</span>
+              <span>yungchialin.com</span>
+            </div>
+          </footer>
+          
+          <script>
+            (function () {
+              var NS = 'http://www.w3.org/2000/svg';
+              function rect(parent, x, y, w, h, fill, cls) {
+                var r = document.createElementNS(NS, 'rect');
+                r.setAttribute('x', x); r.setAttribute('y', y);
+                r.setAttribute('width', w); r.setAttribute('height', h);
+                r.setAttribute('fill', fill);
+                if (cls) r.setAttribute('class', cls);
+                parent.appendChild(r);
+                return r;
+              }
+              // Draw a sprite from rows of characters; runs of the same colour become one rect.
+              function sprite(parent, rows, pal, ox, oy) {
+                rows.forEach(function (row, y) {
+                  var x = 0;
+                  while (x < row.length) {
+                    var c = row[x], start = x;
+                    while (x < row.length && row[x] === c) x++;
+                    if (pal[c]) rect(parent, ox + start, oy + y, x - start, 1, pal[c]);
+                  }
+                });
+              }
 
-  <footer class="bg-dark text-white text-start py-5">
-    <div class="container">
-      <p class="mb-0">&copy; 2026 Yung Chia Lin. All Rights Reserved.</p>
-    </div>
-  </footer>
+              var INK = '#1D2345';
+              var sky = document.getElementById('sky');
+              var stars = document.getElementById('stars');
+              var clouds = document.getElementById('clouds');
+              var sun = document.getElementById('sun');
+              var desk = document.getElementById('desk');
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+              // Sky in stepped bands, like an old game
+              var bands = [];
+              for (var i = 0; i < 4; i++) bands.push(rect(sky, 0, i * 14, 160, i === 3 ? 16 : 14, '#fff', 'sky-band'));
 
-</html>
+              // Stars (visible at night)
+              [[12, 6], [30, 14], [48, 4], [70, 10], [92, 5], [104, 16], [140, 8], [24, 26], [60, 22], [150, 24], [84, 28]].forEach(function (p, k) {
+                rect(stars, p[0], p[1], 1, 1, '#FFF1C7', k % 3 === 0 ? 'blink' : '');
+              });
+
+              // Clouds
+              var cloudRows = [
+                '...wwww.....',
+                '.wwwwwwww...',
+                'wwwwwwwwwww.',
+                'wwwwwwwwwwww',
+                '.bbbbbbbbbb.'
+              ];
+              [[10, 9, 'c1'], [60, 20, 'c2'], [-20, 30, 'c3']].forEach(function (c) {
+                var g = document.createElementNS(NS, 'g');
+                g.setAttribute('class', 'cloud ' + c[2]);
+                var inner = document.createElementNS(NS, 'g');
+                g.appendChild(inner);
+                sprite(inner, cloudRows, { w: '#FFFFFF', b: '#D6E4FF' }, c[0], c[1]);
+                clouds.appendChild(g);
+              });
+
+              // Sun with a face; sleepy face at night
+              var sunRays = document.createElementNS(NS, 'g');
+              sunRays.setAttribute('class', 'sun-rays');
+              [[7, -4, 2, 3], [7, 17, 2, 3], [-4, 7, 3, 2], [17, 7, 3, 2], [-1, -1, 2, 2], [15, -1, 2, 2], [-1, 15, 2, 2], [15, 15, 2, 2]].forEach(function (r) {
+                rect(sunRays, r[0], r[1], r[2], r[3], '#FF7A3D');
+              });
+              var sunBody = document.createElementNS(NS, 'g');
+              var faceDay = [
+                '....oooooooo....',
+                '...oyyyyyyyyo...',
+                '..oyyyyyyyyyyo..',
+                '.oyyyyyyyyyyyyo.',
+                'oyyyyyyyyyyyyyyo',
+                'oyyykyyyyyykyyyo',
+                'oyyykyyyyyykyyyo',
+                'oyyyyyyyyyyyyyyo',
+                'oyppyyyyyyyyppyo',
+                'oyyyykyyyykyyyyo',
+                'oyyyyykkkkyyyyyo',
+                '.oyyyyyyyyyyyyo.',
+                '..oyyyyyyyyyyo..',
+                '...oyyyyyyyyo...',
+                '....oooooooo....'
+              ];
+              var faceNight = faceDay.slice();
+              faceNight[5] = 'oyyyyyyyyyyyyyyo';
+              faceNight[6] = 'oyykkyyyyyykkyyo';
+              faceNight[9] = 'oyyyyyyyyyyyyyyo';
+              faceNight[10] = 'oyyyyyykkyyyyyyo';
+              var pal = { o: '#FF7A3D', y: '#FFC53D', k: INK, p: '#FF8FB1' };
+              var zzz = document.createElementNS(NS, 'g');
+              sprite(zzz, ['kkkk', '..k.', '.k..', 'kkkk'], { k: '#FFF1C7' }, 18, -5);
+              sprite(zzz, ['kkk', '.k.', 'kkk'], { k: '#FFF1C7' }, 24, -10);
+              sun.appendChild(sunRays);
+              sun.appendChild(sunBody);
+              sun.appendChild(zzz);
+
+              // Desk scene
+              rect(desk, 0, 56, 160, 16, '#FFB86B');       // desk top
+              rect(desk, 0, 56, 160, 2, '#E8914A');
+              rect(desk, 0, 68, 160, 4, '#E8914A');
+              // Laptop
+              rect(desk, 58, 30, 42, 26, INK);
+              rect(desk, 60, 32, 38, 21, '#26306A');
+              rect(desk, 54, 54, 50, 3, INK);
+              rect(desk, 55, 55, 48, 1, '#8A93C8');
+              var codeCols = ['#FF8FB1', '#FFC53D', '#2DBE85', '#4DA8FF', '#FF7A3D', '#FFFFFF'];
+              var code = [[62, 35, 14], [64, 38, 20], [64, 41, 12], [66, 44, 22], [64, 47, 9], [62, 50, 6]];
+              code.forEach(function (c, k) {
+                var r = rect(desk, c[0], c[1], c[2], 1.4, codeCols[k], 'code-line');
+                r.style.animationDelay = (k * 0.5) + 's';
+              });
+              rect(desk, 70, 50, 2, 1.4, '#FFFFFF', 'blink');
+              // Mug
+              sprite(desk, [
+                '.kkkkkk..',
+                '.kppppkkk',
+                '.kppppk.k',
+                '.kppppk.k',
+                '.kppppkkk',
+                '..kkkk...'
+              ], { k: INK, p: '#FF8FB1' }, 110, 49);
+              sprite(desk, ['.w.w', 'w.w.', '.w.w'], { w: '#FFFFFF' }, 112, 44);
+              // Plant
+              sprite(desk, [
+                '..g..g..',
+                '.gg.gg..',
+                '.ggggg.g',
+                '..gggggg',
+                '...gg...',
+                '.oooooo.',
+                '.oooooo.',
+                '..oooo..'
+              ], { g: '#2DBE85', o: '#FF7A3D' }, 32, 48);
+              // Stack of books
+              rect(desk, 124, 50, 16, 2, '#4DA8FF');
+              rect(desk, 126, 52, 14, 2, '#FFC53D');
+              rect(desk, 124, 54, 16, 2, '#2DBE85');
+
+              var times = [
+                { name: 'morning', sky: ['#8FD0FF', '#A9DCFF', '#C3E7FF', '#DDF2FF'], sun: [124, 22], night: false },
+                { name: 'midday', sky: ['#3E9BFF', '#5AACFF', '#77BCFF', '#95CCFF'], sun: [104, 8], night: false },
+                { name: 'golden hour', sky: ['#FF7A6B', '#FF9A6B', '#FFBA70', '#FFD98A'], sun: [22, 28], night: false },
+                { name: 'night', sky: ['#1D2345', '#252D59', '#2F386D', '#3B4582'], sun: [130, 12], night: true }
+              ];
+              var t = 0;
+              var btn = document.getElementById('sun-btn');
+              var label = document.getElementById('time-label');
+
+              function setTime(i) {
+                var s = times[i];
+                bands.forEach(function (b, k) { b.setAttribute('fill', s.sky[k]); });
+                sun.style.transform = 'translate(' + s.sun[0] + 'px,' + s.sun[1] + 'px)';
+                while (sunBody.firstChild) sunBody.removeChild(sunBody.firstChild);
+                sprite(sunBody, s.night ? faceNight : faceDay, pal, 0, 0);
+                sunRays.style.display = s.night ? 'none' : '';
+                zzz.style.display = s.night ? '' : 'none';
+                stars.style.opacity = s.night ? 1 : 0;
+                clouds.style.opacity = s.night ? 0.35 : 1;
+                label.textContent = s.name;
+                // Place the invisible button over the sun
+                btn.style.left = ((s.sun[0] - 4) / 160 * 100) + '%';
+                btn.style.top = ((s.sun[1] - 4) / 72 * 100) + '%';
+              }
+              function next() { t = (t + 1) % times.length; setTime(t); }
+              btn.addEventListener('click', next);
+              sun.addEventListener('click', next);
+              setTime(0);
+
+              // Card deck
+              var facts = [
+                { text: 'Designed and built a repair management system at Winmate that processes over 500 repairs per month.', link: '#experience', label: 'See the details', bg: '#FFF1C7' },
+                { text: 'Launched a compliance reporting system that saves over £10,000 in operating costs annually.', link: '#experience', label: 'See the details', bg: '#D5F5E7' },
+                { text: 'Transitioned from business administration to software engineering, combining business insight with technical skills.', link: '#about', label: 'Read more', bg: '#FFE1EA' },
+                { text: 'Awarded a postgraduate scholarship for academic excellence at the University of Bath.', link: '#education', label: 'See education', bg: '#DDEEFF' },
+                { text: 'Built a Python bridge for my MSc dissertation that connects a React application to 35 ROS 2 sensor topics and 8 robot actions over WebSocket.', link: '#projects', label: 'See the project', bg: '#FFF1C7' },
+                { text: 'Diagnosed an intermittent timing race condition in a simulation environment and resolved it with an automated detect-and-retry start-up script.', link: '#projects', label: 'See the project', bg: '#D5F5E7' }
+              ];
+              var f = 0;
+              var factEl = document.getElementById('fact');
+              document.getElementById('draw').addEventListener('click', function () {
+                f = (f + 1) % facts.length;
+                var d = facts[f];
+                document.getElementById('fact-num').textContent = 'Highlight ' + (f + 1) + ' of ' + facts.length;
+                document.getElementById('fact-text').textContent = d.text;
+                var a = document.getElementById('fact-link');
+                a.textContent = d.label; a.setAttribute('href', d.link);
+                factEl.style.background = d.bg;
+                factEl.classList.remove('pop'); void factEl.offsetWidth; factEl.classList.add('pop');
+              });
+            })();
+          </script>
+          </body>
+          
+          </html>
