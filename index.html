@@ -1021,7 +1021,7 @@
             <div class="skills">
               <div class="skill s1">
                 <h4>Languages</h4>
-                <p>HTML, XML, CSS, JavaScript, Python, Node.js, Java, C, SQL</p>
+                <p>Python, SQL, JavaScript, HTML, CSS, Node.js</p>
               </div>
               <div class="skill s2">
                 <h4>Frameworks</h4>
@@ -1138,7 +1138,7 @@
                   <rect x="64" y="188" width="180" height="46" fill="#1D2345" />
                   <rect x="60" y="184" width="180" height="46" fill="#FF8FB1" stroke="#1D2345" stroke-width="2" />
                   <text x="150" y="204" text-anchor="middle" font-weight="800" font-size="13">iRobot Create 3</text>
-                  <text x="150" y="220" text-anchor="middle" font-size="11">Gazebo or physical robot</text>
+                  <text x="150" y="220" text-anchor="middle" font-size="11">iRobot Create 3 (Gazebo simulation)</text>
 
                   <line x1="108" y1="90" x2="108" y2="56" stroke="#2DBE85" stroke-width="2.5" marker-end="url(#a1)" />
                   <text x="102" y="77" text-anchor="end" font-size="11" font-weight="600">data :6789</text>
@@ -1186,19 +1186,19 @@
               <li>Built a <strong>FastAPI and PostgreSQL</strong> API for endpoint management and event publishing. Each
                 event and its deliveries are committed in one transaction and the API returns <strong>202
                   Accepted</strong>, while <strong>Celery</strong> workers send the requests in the background.</li>
-              <li>Designed <strong>two-tier retries</strong> with exponential backoff and jitter: short retries wait in
-                Redis, longer ones are stored in PostgreSQL and requeued by Celery Beat, for up to three days before the
-                delivery moves to a <strong>dead letter queue</strong> and the endpoint is suspended.</li>
+              <li>Designed <strong>two-tier retries</strong> with exponential backoff and jitter: short retries wait in Redis, longer ones are stored in PostgreSQL and requeued by
+              Celery Beat. After three days, or straight away on a non-retryable error such as a 4xx response, the delivery is marked
+              dead and the endpoint is suspended.</li>
               <li>Signed every request with a per-endpoint <strong>HMAC-SHA256</strong> signature over the timestamp and
                 raw body, and attached a unique event ID, so receivers can verify the sender, reject replays and
                 deduplicate.</li>
-              <li>Persisted deliveries before queueing them and enabled late acknowledgement, so neither an API crash
-                nor a worker crash loses a delivery.</li>
+              <li>Committed each delivery to PostgreSQL before queueing it and enabled Celery late acknowledgement, so a task is only
+              acknowledged after the worker has finished it.</li>
               <li>Wrote <strong>27 pytest tests</strong> covering signatures, retry decisions and API fan-out, run by
                 <strong>GitHub Actions</strong> on every push. The suite caught a real bug where events with no
                 subscribers returned a 500.
               </li>
-              <li>Packaged the API, worker, PostgreSQL, Redis and a fault-injecting test endpoint with <strong>Docker
+              <li>Packaged the API, worker, PostgreSQL, Redis and a test endpoint with configurable failure rate and delay in <strong>Docker
                   Compose</strong>, along with a live console that shows deliveries moving through the queue.</li>
             </ul>
 
@@ -1231,7 +1231,7 @@
                   <rect x="10" y="200" width="128" height="46" fill="#1D2345" />
                   <rect x="6" y="196" width="128" height="46" fill="#2DBE85" stroke="#1D2345" stroke-width="2" />
                   <text x="70" y="216" text-anchor="middle" font-weight="800" font-size="13">Celery worker</text>
-                  <text x="70" y="232" text-anchor="middle" font-size="11">retries and DLQ</text>
+                  <text x="70" y="232" text-anchor="middle" font-size="11">signs, sends, retries</text>
 
                   <rect x="170" y="104" width="124" height="46" fill="#1D2345" />
                   <rect x="166" y="100" width="124" height="46" fill="#DDEEFF" stroke="#1D2345" stroke-width="2" />
@@ -1325,7 +1325,7 @@
                 <li>Ran manual and exploratory testing of new web and mobile features against user requirements.</li>
                 <li>Created wireframes and interactive prototypes in Axure with the design team to improve user flows.
                 </li>
-                <li>Authored user guides for complex workflows, improving the adoption of new features.</li>
+                <li>Wrote user guides that turned complex workflows into clear steps for end users.</li>
               </ul>
             </div>
           </li>
@@ -1369,6 +1369,7 @@
           <div class="box" style="background: var(--pink-soft);">
             <h3>BBA, Business Administration</h3>
             <span class="role-org">National United University, Taiwan</span>
+            <span class="date">2014 to 2018</span>
             <p>Built strong analytical and strategic thinking from a business perspective.</p>
           </div>
         </div>
@@ -1583,7 +1584,7 @@
       // Card deck
       var facts = [
         {text: 'Designed and built a repair management system at Winmate that processes over 500 repairs per month.', link: '#experience', label: 'See the details', bg: '#FFF1C7'},
-        {text: 'Built a webhook platform with at-least-once delivery, exponential backoff retries, a dead letter queue and HMAC-signed requests, covered by 27 automated tests.', link: '#projects', label: 'See the project', bg: '#DDEEFF'},
+        {text: 'Built a webhook platform with at-least-once delivery, exponential backoff retries and HMAC-signed requests, covered by 27 automated tests.', link: '#projects', label: 'See the project', bg: '#DDEEFF'},
         {text: 'Launched a compliance reporting system that saves over £10,000 in operating costs annually.', link: '#experience', label: 'See the details', bg: '#D5F5E7'},
         {text: 'Transitioned from business administration to software engineering, combining business insight with technical skills.', link: '#about', label: 'Read more', bg: '#FFE1EA'},
         {text: 'Awarded a postgraduate scholarship for academic excellence at the University of Bath.', link: '#education', label: 'See education', bg: '#DDEEFF'},
